@@ -44,10 +44,12 @@ executable links or runs; the CI workflow performs a real `cargo build
 `.github/workflows/windows.yml` runs on pushes to `main`, pull requests, tags
 matching `v*`, and manual dispatch:
 
-1. **test** — format check, clippy, `cargo test --workspace` on
-   `windows-latest`.
-2. **build** — `cargo build --release`, then packages `roedit.exe`, `README.md`
-   and `LICENSE` into `roedit-windows-x64.zip` and uploads it as an artifact.
+1. **test** — format check, clippy (for Linux and for the
+   `x86_64-pc-windows-msvc` target, which type-checks the Windows-only code
+   paths) and `cargo test --workspace --all-targets` on `ubuntu-latest`.
+2. **build** — `cargo build --release` on `windows-latest`, then packages
+   `roedit.exe`, `README.md` and `LICENSE` into `roedit-windows-x64.zip` and
+   uploads it as an artifact.
 3. **release** — downloads the artifact and publishes a GitHub release with
    `roedit-windows-x64.zip` and its SHA-256 attached. On a push to `main` the
    release tag comes from the `version` field in `Cargo.toml` (`v0.1.0`); a
