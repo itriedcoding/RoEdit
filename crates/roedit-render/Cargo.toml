@@ -1,0 +1,25 @@
+[package]
+name = "roedit-render"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "CPU path tracer and wgpu realtime viewport for RoEdit Studio"
+
+[dependencies]
+roedit-core.workspace = true
+glam.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+log.workspace = true
+rayon.workspace = true
+bytemuck.workspace = true
+wgpu.workspace = true
+
+[dev-dependencies]
+naga = { version = "22", features = ["wgsl-in"] }
+
+[lints]
+workspace = true

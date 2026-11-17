@@ -1,0 +1,24 @@
+[package]
+name = "roedit-video"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Timeline compositing, transitions, audio mixing and image-sequence export for RoEdit Studio"
+
+[dependencies]
+roedit-core.workspace = true
+roedit-image.workspace = true
+roedit-io.workspace = true
+glam.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+log.workspace = true
+
+[dev-dependencies]
+tempfile = "3"
+
+[lints]
+workspace = true

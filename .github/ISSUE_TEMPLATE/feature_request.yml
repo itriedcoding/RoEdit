@@ -1,0 +1,57 @@
+name: Feature request
+description: Propose a workflow or capability that is missing
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        RoEdit only accepts features that can be made genuinely functional.
+        Describe the workflow the feature unblocks, and how we could verify it.
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Workflow
+      description: What are you trying to accomplish, and where does the current build stop you?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behaviour
+      description: What should the application do? Mention the workspace and controls involved.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Existing commands, external tools, or workarounds you have tried.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      multiple: true
+      options:
+        - Modelling
+        - Sculpting
+        - UV editing
+        - Texture painting
+        - GFX
+        - Rigging
+        - Animation
+        - Rendering
+        - Video
+        - Assets / import / export
+        - Extensions
+        - UI / shortcuts / settings
+        - Build / packaging
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Project constraints
+      options:
+        - label: This feature works fully offline (no network, no AI services).
+          required: true
+        - label: I understand unimplemented placeholders are not acceptable.
+          required: true

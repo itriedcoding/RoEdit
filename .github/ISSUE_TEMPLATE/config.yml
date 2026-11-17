@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/itriedcoding/RoEdit/tree/main/docs
+    about: Installation, user manual, tutorials, shortcuts, plugin schema and build instructions.
+  - name: Questions and ideas
+    url: https://github.com/itriedcoding/RoEdit/discussions
+    about: Ask for help or discuss a workflow before filing an issue.

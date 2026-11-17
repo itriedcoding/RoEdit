@@ -1,0 +1,19 @@
+# Rust
+/target
+**/*.rs.bk
+
+# Renders and exports produced by the app
+/renders
+/exports
+*.roedit.autosave
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local secrets (never commit keys)
+.env
+.env.*

@@ -1,0 +1,38 @@
+[package]
+name = "roedit-app"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "RoEdit Studio desktop application (Windows 10/11)"
+
+[[bin]]
+name = "roedit"
+path = "src/main.rs"
+
+[dependencies]
+roedit-core.workspace = true
+roedit-mesh.workspace = true
+roedit-image.workspace = true
+roedit-io.workspace = true
+roedit-render.workspace = true
+roedit-video.workspace = true
+roedit-plugins.workspace = true
+glam.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+log.workspace = true
+env_logger.workspace = true
+egui.workspace = true
+eframe.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+rfd.workspace = true
+
+[dev-dependencies]
+tempfile = "3"
+
+[lints]
+workspace = true

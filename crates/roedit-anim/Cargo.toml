@@ -1,0 +1,19 @@
+[package]
+name = "roedit-anim"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Skeletons, IK solvers, pose libraries and retargeting for RoEdit Studio"
+
+[dependencies]
+roedit-core.workspace = true
+glam.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+log.workspace = true
+
+[lints]
+workspace = true

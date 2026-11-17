@@ -1,0 +1,88 @@
+{
+  "id": "roedit.starter",
+  "name": "RoEdit Starter Pack",
+  "version": "1.0.0",
+  "author": "RoEdit Studio",
+  "description": "Example extension pack: a prop macro, a lighting setup, a material preset and a two-clip timeline.",
+  "api_version": 1,
+  "capabilities": ["mesh", "material", "light", "environment", "render", "timeline"],
+  "commands": [
+    {
+      "id": "roedit.starter.crate",
+      "label": "Build Crate Prop",
+      "description": "Creates a wooden crate with a bevel, a plastic material and a matching point light.",
+      "category": "Props",
+      "steps": [
+        {
+          "op": "add_primitive",
+          "primitive": "cube",
+          "position": [0.0, 0.5, 0.0],
+          "size": [1.0, 1.0, 1.0],
+          "name": "Crate"
+        },
+        { "op": "apply_mesh_op", "operator": "bevel", "amount": 0.03 },
+        {
+          "op": "add_material",
+          "name": "Crate Wood",
+          "color": [0.45, 0.29, 0.15],
+          "metallic": 0.0,
+          "roughness": 0.62
+        },
+        {
+          "op": "add_light",
+          "kind": "point",
+          "position": [1.8, 2.4, 1.6],
+          "intensity": 18.0,
+          "color": [1.0, 0.92, 0.8]
+        }
+      ]
+    },
+    {
+      "id": "roedit.starter.studio_light",
+      "label": "Studio Product Lighting",
+      "description": "Warm key light, cool environment and higher sample count for product shots.",
+      "category": "Lighting",
+      "steps": [
+        { "op": "set_environment", "sun_intensity": 1.4, "exposure": 1.1, "sky_top": [0.05, 0.08, 0.14] },
+        {
+          "op": "add_light",
+          "kind": "spot",
+          "position": [0.0, 3.5, 2.5],
+          "intensity": 40.0,
+          "color": [1.0, 0.96, 0.9]
+        },
+        { "op": "set_render", "quality": "high", "samples": 256, "max_bounces": 6 }
+      ]
+    },
+    {
+      "id": "roedit.starter.timeline_opener",
+      "label": "Two Clip Opener",
+      "description": "Creates a video track with a colour clip and a second clip after it.",
+      "category": "Video",
+      "steps": [
+        { "op": "add_timeline_track", "name": "Opener", "kind": "video" },
+        {
+          "op": "add_timeline_clip",
+          "track": "Opener",
+          "color": [0.08, 0.1, 0.16],
+          "start": 0.0,
+          "duration": 2.0
+        },
+        {
+          "op": "add_timeline_clip",
+          "track": "Opener",
+          "color": [0.12, 0.45, 0.85],
+          "start": 2.0,
+          "duration": 2.0
+        }
+      ]
+    }
+  ],
+  "material_presets": [
+    { "name": "Painted Metal", "color": [0.32, 0.45, 0.62], "metallic": 0.8, "roughness": 0.35 }
+  ],
+  "tips": [
+    "Macros run as ordinary undoable edits: press Ctrl+Z to roll a whole macro back.",
+    "A pack never executes native code; only the steps listed in the host operator table are allowed."
+  ]
+}
